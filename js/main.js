@@ -10,7 +10,7 @@ function onDeviceReady(){
 
 // notifications
 function ShowNativeMessage(message,callback,title,buttonText){
-	navigator.notifications.alert(
+	navigator.notification.alert(
 		message, 	//zprava
 		callback, 	//callback
 		title, 		//titulek
