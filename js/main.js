@@ -1,4 +1,3 @@
-$(document).ready(init());
 
 Function init(){
 	document.addEventListener("deviceready",onDeviceReady, false);
@@ -19,3 +18,5 @@ Function ShowNativeMessage(message,callback,title,buttonText){
 		buttonText 	//nazev tlacitka
 	);	
 }
+
+$(document).ready(init());
