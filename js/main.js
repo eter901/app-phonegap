@@ -1,16 +1,15 @@
-
-Function init(){
+function init(){
 	document.addEventListener("deviceready",onDeviceReady, false);
 }
 
 //PHONEGAP FUNCTIONS
 // onDeviceReady
-Function onDeviceReady(){
+function onDeviceReady(){
 	ShowNativeMessage("zprava",false,"Nadpis","Pokračujte");	
 }
 
 // notifications
-Function ShowNativeMessage(message,callback,title,buttonText){
+function ShowNativeMessage(message,callback,title,buttonText){
 	navigator.notifications.alert(
 		message, 	//zprava
 		callback, 	//callback
