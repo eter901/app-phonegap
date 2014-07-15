@@ -5,7 +5,9 @@ function init(){
 //PHONEGAP FUNCTIONS
 // onDeviceReady
 function onDeviceReady(){
-	ShowNativeMessage("zprava",false,"Nadpis","Pokračujte");	
+	alert("co je?");
+	ShowNativeMessage("zprava",false,"Nadpis","Pokračujte");
+	alert("nic");
 }
 
 // notifications
