@@ -19,9 +19,22 @@
     <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
     </head>
     <body>
-      <header>
+      <!--* * * * LOGIN PAGE * * * *//-->
+      <div data-role="page" id="loginpage">
+        <header data-role="header">
+        header
+        </header>
 
-      </header>
+        <div data-role="content">
+          <input name="text-basic" id="text-basic" value="" placeholder="Your username" type="text">
+          <input name="password" id="password" value="" placeholder="Your password" autocomplete="off" type="password">
+          <button class="ui-shadow ui-btn ui-corner-all">Login</button>
+        </div>
+
+        <footer data-role="footer">
+        footer
+        </footer>
+      </div>
       <button onclick="ShowNativeMessage('zprava',false,'nadpis','ok');">zkouska</button>
 
     <script type="text/javascript" src="cordova.js"></script>

@@ -1,0 +1,6 @@
+/* * * style.css * * */
+
+#loginpage{
+	background:url("../img/bg_login.jpg") top center;
+	background-position: cover;
+}
