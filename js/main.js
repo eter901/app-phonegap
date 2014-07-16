@@ -7,10 +7,11 @@ function init(){
 function onDeviceReady(){
 	
         if (window.device.platform === "iOS" && parseFloat(window.device.version) >= 7.0) {
-          var appElement = document.getElementById('app');
+          var appElement = document.getElementById('body');
+          appElement.style.background = "#123123";
           appElement.style.top = "20px";
         }
-        
+
 	ShowNativeMessage("Phonegap načten",false,"Phone-gap","Pokračujte");
 }
 
