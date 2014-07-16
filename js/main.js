@@ -5,10 +5,12 @@ function init(){
 //PHONEGAP FUNCTIONS
 // onDeviceReady
 function onDeviceReady(){
-	//funkce overeni iOS7
-	if (parseFloat(window.device.version) >= 7.0) {
-          document.body.style.marginTop = "20px";
-    }
+	
+        if (window.device.platform === "iOS" && parseFloat(window.device.version) >= 7.0) {
+          var appElement = document.getElementById('app');
+          appElement.style.top = "20px";
+        }
+        
 	ShowNativeMessage("Phonegap načten",false,"Phone-gap","Pokračujte");
 }
 
