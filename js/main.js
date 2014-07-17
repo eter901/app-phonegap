@@ -5,10 +5,11 @@ function init(){
 //PHONEGAP FUNCTIONS
 // onDeviceReady
 function onDeviceReady(){
-	if (parseFloat(window.device.version) >= 7.0) {
+	if(navigator.userAgent.match(/(iPad.*|iPhone.*|iPod.*);.*CPU.*OS 7_\d/i)) {
     	$("body").addClass("ios7");
+        $('body').append('<div id="ios7statusbar"/>');
 	}
-	
+
 	ShowNativeMessage("Phonegap načten",false,"Phone-gap","Pokračujte");
 }
 
