@@ -24,60 +24,76 @@
   <script id="panel-init">
     $(function() {
       $( "body>[data-role='panel']" ).panel();
+          $("#leftpanel1 ul").listview();
+    $("#leftpanel1").trigger("create");
     });
   </script>
     </head>
     <body id="body" style="margin-top:20px;">
-      <!--* * * * LOGIN PAGE * * * *//-->
+
+<!-- - * - * - * - LOGIN PAGE - * - * - * - //-->
       <div data-role="page" id="loginpage">
         <header data-role="header" data-position="fixed" style="height:45px">
-            <a href="#leftpanel1" data-role="none"><span class="navigation"></span></a><h1>Název aplikace</h1>
+            <a href="#leftpanel1" data-role="none"><span class="navigation"></span></a><h1>App</h1>
         </header>
-
         <div data-role="content">
           <input name="text-basic" id="text-basic" value="" placeholder="Your username" type="text">
           <input name="password" id="password" value="" placeholder="Your password" autocomplete="off" type="password">
           <a href="#afterpage" data-transition="fade"><button class="ui-shadow ui-btn ui-corner-all">Login</button></a>
         </div>
-
         <footer data-role="footer" data-position="fixed">
         footer
         </footer>
       </div>
 
-      <div data-role="page" id="afterpage">
+<!-- - * - * - * - PAGE2 PAGE - * - * - * - //-->
+      <div data-role="page" id="page2-page">
         <header data-role="header" data-position="fixed">
-        header
+          <a href="#leftpanel1" data-role="none"><span class="navigation"></span></a><h1>App - Page2</h1>    
         </header>
-
         <div data-role="content">
-            <a href="#loginpage" data-direction="reverse">ahoj</a>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum porta odio, eu pretium erat dapibus sed. Fusce in hendrerit felis. Aenean ut turpis ac lectus pellentesque posuere. Vivamus sit amet ligula ante. Vivamus tincidunt tellus lacus, in ultricies elit suscipit nec. Mauris eget lorem elit. Nullam eu felis eget nulla feugiat aliquet eu sit amet enim. Sed massa nibh, aliquam tempus vestibulum at, aliquam a libero. In vitae massa ac nisi ornare sollicitudin. 
+          </p>
+          <p>
+            Mauris varius et eros eget vulputate. Nunc at pretium turpis. Sed ut leo aliquam nisi commodo malesuada. Nulla eu tellus sit amet felis vulputate gravida. Nunc feugiat dui at neque tincidunt sollicitudin. Ut eros nibh, tincidunt at purus laoreet, volutpat pretium diam. Proin eu vestibulum ante. 
+          </p>
         </div>
-
         <footer data-role="footer" data-position="fixed">
-        footer
+          <div data-role="navbar" data-grid="c">
+            <ul>
+              <li><a href="#" class="ui-btn-active">One</a></li>
+              <li><a href="#">Two</a></li>
+              <li><a href="#">Three</a></li>
+              <li><a href="#">Four</a></li>
+            </ul>
+          </div>
         </footer>
       </div>
+
+<!-- - * - * - * - MAP PAGE - * - * - * - //-->
       <div data-role="page" id="map-page" data-url="map-page">
         <header data-role="header" data-position="fixed">
-          <a href="#leftpanel1" data-role="none"><span class="navigation"></span></a><h1>Název aplikace - Mapa</h1>    
+          <a href="#leftpanel1" data-role="none"><span class="navigation"></span></a><h1>App - Mapa</h1>    
         </header>
 
         <div data-role="content" id="content">
           <div id="map_canvas" style="height:100%"></div>
         </div>
-
         <footer data-role="footer" data-position="fixed">
         footer
         </footer>
       </div>
 
+<!-- - * - * - * - NAVIGATION PANEL - * - * - * - //-->
         <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-theme="a">
-          <h3>Left Panel: Reveal</h3>
-          <p>This panel is positioned on the left with the reveal display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p>
-          <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
-          <a href="#map-page" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Mapa</a>
-          <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
+          <h3>Navigation</h3>
+          <ul data-role="listview">
+            <li><a href="#loginpage">Login page</a></li>
+            <li><a href="#map-page">Map</a></li>
+            <li><a href="#page2-page">Page2</a></li>
+            <li><a href="#" data-rel="close">Close Panel</a></li>
+          </ul>
         </div>
 
     <script type="text/javascript" src="cordova.js"></script>
