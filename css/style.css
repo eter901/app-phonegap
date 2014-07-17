@@ -4,3 +4,7 @@
 	background:url("../img/bg_login.jpg") top center;
 	background-position: cover;
 }
+
+.ios7 .ui-page, .ios7 .ui-header, .ios7 .ui-pane {
+     margin-top: 20px !important;
+  }
