@@ -26,3 +26,7 @@ function ShowNativeMessage(message,callback,title,buttonText){
 }
 
 $(document).ready(init());
+
+function afterloginpage(){
+    $.mobile.changepage('#afterpage', {transition: 'slidedown'});
+}
