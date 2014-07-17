@@ -17,12 +17,19 @@
     <script type="text/javascript" charset="utf-8" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.3.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+
+
+  <script id="panel-init">
+    $(function() {
+      $( "body>[data-role='panel']" ).panel();
+    });
+  </script>
     </head>
     <body id="body" style="margin-top:20px;">
       <!--* * * * LOGIN PAGE * * * *//-->
       <div data-role="page" id="loginpage">
-        <header data-role="header" data-position="fixed">
-        header
+        <header data-role="header" data-position="fixed" style="height:45px">
+            <a href="#leftpanel1" data-role="none"><span class="demoSpan1"></span></a><h1>Název aplikace</h1>
         </header>
 
         <div data-role="content">
@@ -49,6 +56,13 @@
         footer
         </footer>
       </div>
+
+        <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-theme="a">
+          <h3>Left Panel: Reveal</h3>
+          <p>This panel is positioned on the left with the reveal display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p>
+          <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
+          <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
+        </div>
 
     <script type="text/javascript" src="cordova.js"></script>
   </body>
