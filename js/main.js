@@ -52,7 +52,7 @@ $(document).ready(init());
     }
     function drawMap(latlng) {
         var myOptions = {
-            zoom: 12,
+            zoom: 16,
             center: latlng,
             disableDefaultUI: true,
 
