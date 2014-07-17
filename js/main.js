@@ -34,50 +34,38 @@ $(document).ready(init());
 
 //MAPA GOOGLE MAPA GOOGLE MAPA GOOGLE MAPA GOOGLE
 
-$(document).on('pageshow', '#map-page',function(e,data){   
-    $('#content').height(getRealContentHeight());
-   // This is the minimum zoom level that we'll allow
-   var minZoomLevel = 12;
+ $( document ).on( "pageshow", "#map-page", function() {
+	$('#content').height(getRealContentHeight()-70);
+    var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);  // Default to Hollywood, CA when no geolocation support
+    if ( navigator.geolocation ) {
+        function success(pos) {
+            // Location found, show map with these coordinates
+            drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+        }
+        function fail(error) {
+            drawMap(defaultLatLng);  // Failed to find location, show default map
+        }
+        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+    } else {
+        drawMap(defaultLatLng);  // No geolocation support, show default map
+    }
+    function drawMap(latlng) {
+        var myOptions = {
+            zoom: 12,
+            center: latlng,
+            disableDefaultUI: true,
 
-   var map = new google.maps.Map(document.getElementById('map_canvas'), {
-      zoom: minZoomLevel,
-      center: new google.maps.LatLng(38.50, -90.50),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-   });
-
-  /* // Bounds for North America
-   var strictBounds = new google.maps.LatLngBounds(
-     new google.maps.LatLng(28.70, -127.50), 
-     new google.maps.LatLng(48.85, -55.90)
-   );
-
-   // Listen for the dragend event
-   google.maps.event.addListener(map, 'dragend', function() {
-     if (strictBounds.contains(map.getCenter())) return;
-
-     // We're out of bounds - Move the map back within the bounds
-
-     var c = map.getCenter(),
-         x = c.lng(),
-         y = c.lat(),
-         maxX = strictBounds.getNorthEast().lng(),
-         maxY = strictBounds.getNorthEast().lat(),
-         minX = strictBounds.getSouthWest().lng(),
-         minY = strictBounds.getSouthWest().lat();
-
-     if (x < minX) x = minX;
-     if (x > maxX) x = maxX;
-     if (y < minY) y = minY;
-     if (y > maxY) y = maxY;
-
-     map.setCenter(new google.maps.LatLng(y, x));
-   });
-
-   // Limit the zoom level
-   google.maps.event.addListener(map, 'zoom_changed', function() {
-     if (map.getZoom() < minZoomLevel) map.setZoom(minZoomLevel);
-   });  */
-    
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        // Add an overlay to the map of current lat/lng
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: "Greetings!"
+        });
+    }
 });
 
 function getRealContentHeight() {
