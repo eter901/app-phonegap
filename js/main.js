@@ -5,13 +5,7 @@ function init(){
 //PHONEGAP FUNCTIONS
 // onDeviceReady
 function onDeviceReady(){
-	
-        if (window.device.platform === "iOS" && parseFloat(window.device.version) >= 7.0) {
-          var appElement = document.getElementById('body');
-          appElement.style.background = "#123123";
-          appElement.style.top = "20px";
-        }
-
+	StatusBar.backgroundColorByHexString("#f8f8f8");
 	ShowNativeMessage("Phonegap načten",false,"Phone-gap","Pokračujte");
 }
 
@@ -26,7 +20,3 @@ function ShowNativeMessage(message,callback,title,buttonText){
 }
 
 $(document).ready(init());
-
-function afterloginpage(){
-    $.mobile.changepage('#afterpage', {transition: 'slidedown'});
-}
