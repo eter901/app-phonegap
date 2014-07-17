@@ -16,7 +16,7 @@
     <!-- * * JAVA SCRIPT * * //-->
     <script type="text/javascript" charset="utf-8" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.3.js"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>  
     <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 
 
@@ -63,10 +63,8 @@
           <a href="#leftpanel1" data-role="none"><span class="navigation"></span></a><h1>Název aplikace - Mapa</h1>    
         </header>
 
-        <div data-role="content">
-            <div role="main" class="ui-content" id="map-canvas">
-              <!-- map loads here... -->
-            </div>
+        <div data-role="content" id="content">
+          <div id="map_canvas" style="height:100%"></div>
         </div>
 
         <footer data-role="footer" data-position="fixed">
