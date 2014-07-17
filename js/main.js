@@ -5,7 +5,9 @@ function init(){
 //PHONEGAP FUNCTIONS
 // onDeviceReady
 function onDeviceReady(){
-	StatusBar.backgroundColorByHexString("#f8f8f8");
+	    if (parseFloat(window.device.version) >= 7.0) {
+        $("div.ui-header").css("padding-top", "20px"); 
+        }
 	ShowNativeMessage("Phonegap načten",false,"Phone-gap","Pokračujte");
 }
 
