@@ -4,7 +4,7 @@
 	background:url("../img/bg_login.jpg") top center;
 	background-position: cover;
 }
-span{height:25px; width:25px; display:block; position:relative;} 
+span{height:25px; width:25px; display:block; position:relative;bottom:0px;} 
 
 .demoSpan1{width:25px; height:25px;}
 
