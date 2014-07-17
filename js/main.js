@@ -5,6 +5,12 @@ function init(){
 //PHONEGAP FUNCTIONS
 // onDeviceReady
 function onDeviceReady(){
+	if (parseFloat(window.device.version) >= 7.0) {
+		$(".ui-header-fixed").css( "paddingTop", "20px" );
+		$(".ui-content").css( "paddingTop", "40px" );
+    	ShowNativeMessage("ios7",false,"ios7","ios7");
+	}
+
 	ShowNativeMessage("Phonegap načten",false,"Phone-gap","Pokračujte");
 }
 

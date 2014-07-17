@@ -4,17 +4,3 @@
 	background:url("../img/bg_login.jpg") top center;
 	background-position: cover;
 }
-
-#ios7statusbar
-{
-    width:100%;
-    height:20px;
-    background-color:white;
-    position:fixed;
-    z-index:100;
-}
- 
-.ios7 .ui-page
-{
-    margin-top: 20px;
-}
