@@ -23,6 +23,7 @@ function ShowNativeMessage(message,callback,title,buttonText){
 function ios7statusBar(){
 	if (parseFloat(window.device.version) >= 7.0) {
 		$(".ui-header-fixed").css("paddingTop", "20px");
+		$(".navigation").css("top", "20px");
 		$(".ui-content").css("paddingTop", "40px");
 	};	
 };
