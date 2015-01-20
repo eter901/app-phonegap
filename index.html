@@ -1,101 +1,374 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="cs">
   <head>
-    <title>Hello World | APP</title>
-
-    <!-- * * META INFORMATION * * //-->    
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta charset="UTF-8" />
+    <title>Bomton Aplikace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Bomton Aplikace" />
+		<link rel="stylesheet" href="./css/site-styles.css" />
+    <script type="text/javascript" src="./js/jquery-2.1.3.min.js"></script> <!-- jQuery -->
+    <script type="text/javascript" src="./js/jquery.mobile.custom.js"></script> <!-- jQuery Mobile -->
+    <script type="text/javascript" src="./js/jquery-barcode.min.js"></script> <!-- jQuery Barcode -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script> <!-- Google Maps -->
     
-    <!-- * * CSS STYLES * * //-->
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
-    <link rel="stylesheet" type="text/css" href="./css/jquery.mobile-1.4.3.min.css" />
-    
-    <!-- * * JAVA SCRIPT * * //-->
-    <script type="text/javascript" charset="utf-8" src="js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.3.js"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>  
-    <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
-
-
-
-  <script id="panel-init">
-    $(function() {
-      $( "body>[data-role='panel']" ).panel();
-          $("#leftpanel1 ul").listview();
-    $("#leftpanel1").trigger("create");
-    });
-  </script>
-    </head>
-    <body id="body" style="margin-top:20px;">
-
-<!-- - * - * - * - LOGIN PAGE - * - * - * - //-->
-      <div data-role="page" id="loginpage">
-        <header data-role="header" data-position="fixed" style="height:45px">
-            <a href="#leftpanel1" data-role="none"><span class="navigation"></span></a><h1>App</h1>
-        </header>
-        <div data-role="content">
-          <input name="text-basic" id="text-basic" value="" placeholder="Your username" type="text">
-          <input name="password" id="password" value="" placeholder="Your password" autocomplete="off" type="password">
-          <a href="#afterpage" data-transition="fade"><button class="ui-shadow ui-btn ui-corner-all">Login</button></a>
-        </div>
-        <footer data-role="footer" data-position="fixed">
-        footer
-        </footer>
+    <script type="text/javascript" src="./js/site-javascript.js"></script> <!-- site JavaScript -->
+    <script type="text/javascript" src="./js/core/app.js"></script> <!-- App -->
+    <script type="text/javascript" src="./js/core/view.js"></script> <!-- View -->
+    <script type="text/javascript" src="./js/core/viewEan.js"></script> <!-- ViewEan -->
+    <script type="text/javascript" src="./js/core/events.js"></script> <!-- Events -->
+    <script type="text/javascript" src="./js/core/api.js"></script> <!-- Api -->
+  </head>
+  <body>
+    <!-- page-login -->
+    <div data-role="page" id="login" class="page">
+      <div class="background"><img src="./img/background.jpg" width="100%"/></div>
+      <div data-role="header" class="header">
+        <img src="./img/bomton-logo.svg" />
       </div>
 
-<!-- - * - * - * - PAGE2 PAGE - * - * - * - //-->
-      <div data-role="page" id="page2-page">
-        <header data-role="header" data-position="fixed">
-          <a href="#leftpanel1" data-role="none"><span class="navigation"></span></a><h1>App - Page2</h1>    
-        </header>
-        <div data-role="content">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum porta odio, eu pretium erat dapibus sed. Fusce in hendrerit felis. Aenean ut turpis ac lectus pellentesque posuere. Vivamus sit amet ligula ante. Vivamus tincidunt tellus lacus, in ultricies elit suscipit nec. Mauris eget lorem elit. Nullam eu felis eget nulla feugiat aliquet eu sit amet enim. Sed massa nibh, aliquam tempus vestibulum at, aliquam a libero. In vitae massa ac nisi ornare sollicitudin. 
-          </p>
-          <p>
-            Mauris varius et eros eget vulputate. Nunc at pretium turpis. Sed ut leo aliquam nisi commodo malesuada. Nulla eu tellus sit amet felis vulputate gravida. Nunc feugiat dui at neque tincidunt sollicitudin. Ut eros nibh, tincidunt at purus laoreet, volutpat pretium diam. Proin eu vestibulum ante. 
-          </p>
-        </div>
-        <footer data-role="footer" data-position="fixed">
-          <div data-role="navbar" data-grid="c">
-            <ul>
-              <li><a href="#" class="ui-btn-active">One</a></li>
-              <li><a href="#">Two</a></li>
-              <li><a href="#">Three</a></li>
-              <li><a href="#">Four</a></li>
-            </ul>
-          </div>
-        </footer>
+      <div data-role="footer" data-position="fixed">
+        <form method="post" action="#navigationMenu">
+          <input type="text" placeholder="MAIL" />
+          <input type="text" placeholder="ČÍSLO KARTY" />
+          <input type="submit" value="PŘIHLÁSIT" />
+          <input type="checkbox" id="remember"/>
+          <label for="remember">Trvalé přihlášení</label>
+          <label for="remember"></label>
+        </form>
+      </div>
+    </div>
+    <!-- /page-login -->
+
+
+    <!-- navigationMenu -->
+    <div data-role="page" id="navigationMenu" class="page">
+      <div class="background"><img src="./img/background-shadow.jpg" width="100%"/></div>
+      <div class="fixed-header" data-role="header" data-position="fixed">
+        <div class="background overflow"><img src="./img/background-shadow.jpg" width="100%"/></div>
+        <a href="#login" data-rel="back"><img src="./img/back.svg" /></a>
+        <img class="logo" src="./img/bomton-logo.svg" /> 
+        <div class="clear-fix"></div> 
       </div>
 
-<!-- - * - * - * - MAP PAGE - * - * - * - //-->
-      <div data-role="page" id="map-page" data-url="map-page">
-        <header data-role="header" data-position="fixed">
-          <a href="#leftpanel1" data-role="none"><span class="navigation"></span></a><h1>App - Mapa</h1>    
-        </header>
+      <div role="main">
+        <h1>Alena Purkrabníkoová</h1>
+<!--
+<h1>Sleva 30% na stříhání</h1>
+-->
+        <span class="info">12345678</span>
+<!-- narozeniny
+        <span class="info">Všechno nejlepší k narozeninám!</span>
+narozeniny-->
 
-        <div data-role="content" id="content">
-          <div id="map_canvas" style="height:100%"></div>
-        </div>
-        <footer data-role="footer" data-position="fixed">
-        footer
-        </footer>
+        <ul>
+<!-- zobrazit slevu 
+          <li><a href="#" data-transition="slide">Zobrazit slevu</a></li>
+zobrazit slevu -->
+          <li><a href="#" data-transition="slide">Zobrazit profil</a></li>
+          <li><a href="#" data-transition="slide">Zprávy<number>6</number></a></li>
+          <li><a href="#" data-transition="slide">Novinky<number>8</number></a></li>
+          <li><a href="#" data-transition="slide">Nastavte si svá oblíbená studia<number></number></a></li>
+<!-- kontakty nastaveny 
+          <li><a href="#" data-transition="slide">Kontakty<number>3</number></a></li>
+kontakty nastaveny --> 
+        </ul>
+      </div>
+    </div>
+    <!-- navigationMenu -->
+
+    <!-- account -->
+    <div data-role="page" id="account" class="page">
+      <div class="background"><img src="./img/background-shadow.jpg" width="100%"/></div>
+      <div class="fixed-header" data-role="header" data-position="fixed">
+        <div class="background overflow"><img src="./img/background-shadow.jpg" width="100%"/></div>
+        <a href="#login" data-rel="back"><img src="./img/back.svg" /></a>
+        <img class="logo" src="./img/bomton-logo.svg" /> 
+        <div class="clear-fix"></div> 
       </div>
 
-<!-- - * - * - * - NAVIGATION PANEL - * - * - * - //-->
-        <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-theme="a">
-          <h3>Navigation</h3>
-          <ul data-role="listview">
-            <li><a href="#loginpage">Login page</a></li>
-            <li><a href="#map-page">Map</a></li>
-            <li><a href="#page2-page">Page2</a></li>
-            <li><a href="#" data-rel="close">Close Panel</a></li>
-          </ul>
+      <div role="main">
+        <a href="#accountEdit" class="account-edit" data-transition="slide">Upravit</a>
+        <h1>Alena Purkrabníkoová</h1>
+        <span class="info">12345678</span>
+        <span class="discount-info">Sleva 20% na služby, 10% na produkty</span>
+        <div class="progress-bar">
+          <span>Kredit</span><span>Nabito 15.12.2014, 5000 Kč</span> 
+          <div class="progress-bg"></div>
+          <div class="progress" style="width:20%"></div>
+          <span class="bar-left">Zbývá 6000 Kč</span>  
         </div>
 
-    <script type="text/javascript" src="cordova.js"></script>
+        <div class="progress-bar">
+          <span>Členství standard</span><span>Zlaté členství</span> 
+          <div class="progress-bg"></div>
+          <div class="progress" style="width:80%"></div>
+          <span class="bar-right">Zbývá 6000 Kč</span> 
+        </div>
+        <a href="#reviews" class="text">Poslední návštěvy</a>
+        <hr class="margin"/>
+        <div id="barcode-account" class="barcode"></div>
+      </div>
+    </div>
+    <!-- account -->
+
+    <!-- reviews -->
+    <div data-role="page" id="reviews" class="page">
+      <div class="background"><img src="./img/background-shadow.jpg" width="100%"/></div>
+      <div class="fixed-header" data-role="header" data-position="fixed">
+        <div class="background overflow"><img src="./img/background-shadow.jpg" width="100%"/></div>
+        <a href="#navigationMenu" data-rel="back"><img src="./img/back.svg" /></a>
+        <img class="logo" src="./img/bomton-logo.svg" /> 
+        <div class="clear-fix"></div> 
+      </div>
+      <div role="main">
+        <ul>
+          <li>
+            <div class="controls">
+              <span class="plus"> </span>
+              <span class="minus"> </span>
+            </div>
+            <div class="text">
+              <span class="name">Stříhání</span>
+              <span class="price-date">20 000Kč, 25. 1. 2014</span>
+              <span class="place-person">Jalta, Balcařík</span>
+            </div>
+          </li>
+          <li>
+            <div class="controls">
+              <span class="plus"> </span>
+              <span class="minus"> </span>
+            </div>
+            <div class="text">
+              <span class="name">Stříhání</span>
+              <span class="price-date">20 000Kč, 25. 1. 2014</span>
+              <span class="place-person">Jalta, Balcařík</span>
+            </div>
+          </li>
+          <li>
+            <div class="controls">
+              <span class="plus"> </span>
+              <span class="minus"> </span>
+            </div>
+            <div class="text">
+              <span class="name">Stříhání</span>
+              <span class="price-date">20 000Kč, 25. 1. 2014</span>
+              <span class="place-person">Jalta, Balcařík</span>
+            </div>
+          </li>
+          <li>
+            <div class="controls">
+              <span class="plus"> </span>
+              <span class="minus"> </span>
+            </div>
+            <div class="text">
+              <span class="name">Stříhání</span>
+              <span class="price-date">20 000Kč, 25. 1. 2014</span>
+              <span class="place-person">Jalta, Balcařík</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- reviews -->
+
+    <!-- account-edit -->
+    <div data-role="page" id="accountEdit" class="page">
+      <div class="background"><img src="./img/background-shadow.jpg" width="100%"/></div>
+      <div class="fixed-header" data-role="header" data-position="fixed">
+        <div class="background overflow"><img src="./img/background-shadow.jpg" width="100%"/></div>
+        <a href="#login" data-rel="back"><img src="./img/back.svg" /></a>
+        <img class="logo" src="./img/bomton-logo.svg" /> 
+        <div class="clear-fix"></div> 
+      </div>
+
+      <div role="main">
+        <form method="post" action="#discount" data-transition="slide">
+          <input type="text" placeholder="JMÉNO" />
+          <input type="text" placeholder="PŘÍJMENÍ" /> 
+          <input type="text" placeholder="E-MAIL" />
+          <input type="text" placeholder="TELEFON" />
+          <select placeholder="pohlavi">
+            <option value="man" selected disabled>POHLAVÍ</option>
+            <option value="man">Muž</option>
+            <option value="woman">Žena</option>
+          </select>
+          <input type="submit" value="Uložit" />
+        </form>
+      </div>
+    </div>
+    <!-- account-edit -->
+
+    <!-- discount -->
+    <div data-role="page" id="discount" class="page">
+      <div class="background"><img src="./img/background-shadow.jpg" width="100%"/></div>
+      <div class="fixed-header" data-role="header" data-position="fixed">
+        <div class="background overflow"><img src="./img/background-shadow.jpg" width="100%"/></div>
+        <a href="#navigationMenu" data-rel="back"><img src="./img/back.svg" /></a>
+        <img class="logo" src="./img/bomton-logo.svg" /> 
+        <div class="clear-fix"></div> 
+      </div>
+
+      <div role="main">
+        <h1>Sleva 30% na stříhání</h1>
+        <span class="info">Všechno nejlepší k narozeninám!</span>
+        <span class="info white">Sleva se dá uplatnit v těchto studiích:</span>
+        <ul>
+          <li>Jalta</li>
+          <li>Brumlovka</li>
+          <li>Florentinum</li>
+        </ul>
+        <div id="barcode-discount" class="barcode"></div>
+      </div>
+    </div>
+    <!-- discount -->
+
+    <!-- news -->
+    <div data-role="page" id="news" class="page">
+      <div class="background"><img src="./img/background-shadow.jpg" width="100%"/></div>
+      <div class="fixed-header" data-role="header" data-position="fixed">
+        <div class="background overflow"><img src="./img/background-shadow.jpg" width="100%"/></div>
+        <a href="#navigationMenu" data-rel="back"><img src="./img/back.svg" /></a>
+        <img class="logo" src="./img/bomton-logo.svg" /> 
+        <div class="clear-fix"></div> 
+      </div>
+      <div role="main">
+        <ul>
+          <li>
+            <a href="#new?id1" data-transition="slide">
+              <span class="name">Vánoční otevírací doba</span>
+              <span class="show">Zobrazit</span>
+              <span class="date">23.12.2014</span>
+              <div class="clear-fix"></div> 
+            </a>
+            <a href="#new?id2" data-transition="slide">
+              <span class="name">Další novinka</span>
+              <span class="show">Zobrazit</span>
+              <span class="date">23.12.2014</span>
+              <div class="clear-fix"></div> 
+            </a>
+            <a href="#new?id2" data-transition="slide">
+              <span class="name">Další novinka</span>
+              <span class="show">Zobrazit</span>
+              <span class="date">23.12.2014</span>
+              <div class="clear-fix"></div> 
+            </a>
+            <a href="#new?id2" data-transition="slide">
+              <span class="name">Další novinka</span>
+              <span class="show">Zobrazit</span>
+              <span class="date">23.12.2014</span>
+              <div class="clear-fix"></div> 
+            </a>
+            <a href="#new?id2" data-transition="slide">
+              <span class="name">Další novinka</span>
+              <span class="show">Zobrazit</span>
+              <span class="date">23.12.2014</span>
+              <div class="clear-fix"></div> 
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- news -->
+
+    <!-- contacts -->
+    <div data-role="page" id="contacts" class="page">
+      <div class="background"><img src="./img/background-shadow.jpg" width="100%"/></div>
+      <div class="fixed-header" data-role="header" data-position="fixed">
+        <div class="background overflow"><img src="./img/background-shadow.jpg" width="100%"/></div>
+        <a href="#navigationMenu" data-rel="back"><img src="./img/back.svg" /></a>
+        <img class="logo" src="./img/bomton-logo.svg" /> 
+        <div class="clear-fix"></div> 
+      </div>
+
+      <div role="main">
+        <ul>
+          <li>
+            <span class="favourite checked"></span>
+            <a href="#studio" data-transition="slide">
+              <span class="name">Bomton Jalta</span>
+              <span class="address">Václavské náměstí 43, Praha 1</span>
+              <span class="services">Střih, kosmetika, spa</span>
+              <div class="clear-fix"></div> 
+            </a>
+          </li>
+          <li>
+            <span class="favourite checked"></span>
+            <a href="#studio" data-transition="slide">
+              <span class="name">Bomton Jalta</span>
+              <span class="address">Václavské náměstí 43, Praha 1</span>
+              <span class="services">Střih, kosmetika, spa</span>
+              <div class="clear-fix"></div> 
+            </a>
+          </li>
+          <li>
+            <span class="favourite"></span>
+            <a href="#studio" data-transition="slide">
+              <span class="name">Bomton Jalta</span>
+              <span class="address">Václavské náměstí 43, Praha 1</span>
+              <span class="services">Střih, kosmetika, spa</span>
+              <div class="clear-fix"></div> 
+            </a>
+          </li>
+          <li>
+            <span class="favourite"></span>
+            <a href="#studio" data-transition="slide">
+              <span class="name">Bomton Jalta</span>
+              <span class="address">Václavské náměstí 43, Praha 1</span>
+              <span class="services">Střih, kosmetika, spa</span>
+              <div class="clear-fix"></div> 
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- contacts -->
+
+    <!-- studio -->
+    <div data-role="page" id="studio" class="page">
+      <div class="background"><img src="./img/background-shadow.jpg" width="100%"/></div>
+      <div class="fixed-header" data-role="header" data-position="fixed">
+        <div class="background overflow"><img src="./img/background-shadow.jpg" width="100%"/></div>
+        <a href="#navigationMenu" data-rel="back"><img src="./img/back.svg" /></a>
+        <img class="logo" src="./img/bomton-logo.svg" /> 
+        <div class="clear-fix"></div> 
+      </div>
+
+      <div role="main">
+        <h1>Bomton Jalta</h1>
+        <span class="info">Praha 1, Václavské nám. 43</span>
+        <ul class="hours">
+          <li>
+            <span>Po - Pá:</span>
+            <span>8:00 - 21:00</span>
+          </li>
+          <li>
+            <span>So:</span>
+            <span>8:00 - 21:00</span>
+          </li>
+          <li>
+            <span>Ne:</span>
+            <span>8:00 - 19:00</span>
+          </li>
+        </ul>
+        
+        <ul>
+          <li>
+            <a class="out" href="tel:+420222222222">+420 222 222 222<span>Volat</span></a>    
+          </li> 
+          <li>
+            <a class="out" href="mailto:jalta@bomton.cz">jalta@bomton.cz<span>Napsat</span></a>
+          </li>
+        </ul>
+        <script>
+          var myLatlng = new google.maps.LatLng(27.335883, -82.538664);
+        </script>
+        <div class="map">
+          <div id="map-canvas"></div>  
+        </div>
+
+      </div>
+    </div>
+    <!-- studio -->
   </body>
+
 </html>

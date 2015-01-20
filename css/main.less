@@ -1,0 +1,427 @@
+//FONTS
+
+//hledat: //vyresit na iphonu
+@font-face {
+    font-family: 'Avenir-Roman';
+    src: url('./fonts/avenir-roman-webfont.woff') format('woff'),
+         url('./fonts/avenir-roman-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Avenir-Light';
+    src: url('./fonts/avenir-light-webfont.woff') format('woff'),
+         url('./fonts/avenir-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    
+}
+@import (less) "./layout/jquery.mobile.custom.structure.min.css";
+//CORE
+@import (less) "./core/prefixes.less";
+@import (less) "./core/helpers.less";
+@import (less) "./core/mixins.less";
+
+//import normalize
+@import (less) "./lib/normalize-v3.0.2.css";
+
+
+div#login{
+  div.header img{
+    width: 100%;
+  }
+  form{
+    font-family: 'Avenir-Light';
+    margin:0 auto;
+    padding:@padding-page;
+    padding-bottom:4rem;
+    input[type='text'],input[type='submit']{
+      font-size:1.625rem;
+      margin:0;
+      padding:0;
+      border-radius: 0;
+      border:0;
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      padding:0.8rem;
+      background-color: rgba(255,255,255,0.8);
+      .box-sizing(box);
+    }
+    input[type='text']:nth-child(2){
+      border-top:1px solid @black;
+    }
+    input[type='submit']{
+      margin:1rem 0rem 2rem;
+      background-color: rgba(0,0,0,0.8);
+      color:@white;
+      text-transform: uppercase;
+    }
+    input[type='checkbox']{display: none;}
+    input[type='checkbox'] + label{
+      float: left;
+      text-transform: uppercase;
+      font-size:1.625rem;
+      color:rgba(0,0,0,0.8);
+    }
+    input[type='checkbox'] + label + label{
+      background-color: #000;
+      border-radius: 50%;
+      border:0.5rem #000 solid;
+      width: 0.7rem;
+      height: 0.7rem;
+      float:right;
+    }
+    input[type='checkbox']:checked + label + label{
+      background-color: #fff;
+      border-radius: 50%;
+      border:0.5rem #000 solid;
+      width: 0.7rem;
+      height: 0.7rem;
+      float:right;
+    }
+  }
+}
+
+div.fixed-header{
+    padding:@padding-page;
+    //padding-top:2.4rem; //vyresit na iphonu
+    .box-sizing(box);
+    overflow: hidden;
+    height: 100px;
+    height: 20vw;
+    border-bottom:1px solid rgba(255,255,255,.16);
+    img.logo{
+      float:right;
+      width: 50vw;
+    }  
+    a[data-rel='back'].ui-btn-left{
+      position: relative;
+      display: block;
+      float: left;
+      top:0;
+      margin: 0;
+      img{
+        width: 9vw;
+      }
+    }
+}
+div[role='main']{
+  .box-sizing(box);
+  padding-top:20vw;
+  color:@white;
+  h1{
+    font-family: 'Avenir-Light';
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 8.75vw;
+    color:@green;
+    padding:0; 
+    margin: 0;
+  }
+  span.info,number{
+    color:@green;
+    font-size: 5vw;
+    font-family: 'Avenir-Light';
+    text-transform: uppercase;
+  }
+  span.info.white{
+    color:rgba(255,255,255,1);
+    display: block;
+    margin:1rem 0rem 0.5rem;
+    font-size: 4vw;
+  }
+  ul{
+    padding:0;
+    li{
+      list-style-type: none;
+      a{
+        text-decoration: none;
+        color:#fff;
+        display: block;
+        padding: 2rem 0;
+        text-transform: uppercase;
+        border-bottom:1px rgba(255,255,255,.16) solid;
+        font-size: 5vw;
+        number{
+          float: right;
+        }
+      }
+    }
+  }
+}
+div#discount div[role='main']{
+  ul{
+    li{
+      color:@green;
+      text-transform: uppercase;
+      font-size: 5vw;
+      font-family: 'Avenir-Light';
+    }
+  } 
+}
+div#news div[role='main']{
+  ul{
+    li{
+      a{
+        color:@green;
+        span.name{
+          margin-bottom:1rem;
+          display: block;
+        }
+        span.show{
+          float:left;
+          color:rgba(255,255,255,1);
+        }
+        span.date{
+          color:rgba(255,255,255,0.3);
+          float:right;
+        }
+      }
+    }
+  }
+}
+
+div#contacts div[role='main']{
+  ul{
+    li{
+      a{
+        color:@green;
+        span.name{
+          margin-bottom:1rem;
+          display: block;
+          font-size: 7vw;
+        }
+        span.address,span.services{
+          color:#fff;
+          font-size: 4.2vw;
+          display: block;
+        }
+      }
+      span.favourite{
+        float:right;
+        color:rgba(255,255,255,1);
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-image: url(../img/star.svg);
+        height: 50px;
+        width: 50px;
+        margin-top:32px;
+        &.checked{
+          background-image: url(../img/star_on.svg);  
+        }
+      }
+    }
+  }
+}
+
+div#studio div[role='main']{
+  ul.hours{
+    margin-bottom:4rem;
+    li{
+      span{
+        font-size: 5vw;
+        text-transform: uppercase;
+        &:first-child{
+          display:inline-block;
+          width:24vw;
+        }
+      }
+    }
+  }
+  a.out{
+    background-color: rgba(0,0,0,0.6);
+    color:#fff;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    padding:1rem;
+    border-top:1px solid rgba(255,255,255,0.3);
+    .box-sizing(box);
+    &:first-child{
+      border-top:transparent 0px;
+    }
+    span{
+      float:right;
+    }
+  }
+  .map{
+    margin-top:2rem;
+    width:100%;
+    height: 15rem;
+    overflow: hidden;
+    margin-left:-@padding-page;
+    position: absolute;
+    #map-canvas{
+      width: 100%;
+      height: 150%;
+    }
+  }
+}
+
+div#account div[role='main']{
+  span.discount-info{
+    color:@green;
+    display: block;
+    text-transform: uppercase;
+    font-size: 4vw;
+    margin-top:0.5rem;
+    margin-bottom:2rem;
+  }
+  div.progress-bar{
+    span{
+      color:#fff;
+      font-size: 4vw;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom:0.8rem;
+      &:nth-child(2){
+        float:right;
+        color:@green;
+      }
+    }
+    div.progress-bg{
+      width: 100%;
+      height: 12vw;
+      background-color: rgba(0,0,0,.5);
+    }
+    div.progress{
+      height: 12vw;
+      background-color: @green;
+      max-width: 100%;
+      min-width: 0%;
+      margin-top: -12vw;
+    }
+    .bar-left, .bar-right{
+      text-transform: uppercase;
+      top:-8.5vw;
+      position: relative;
+    }
+    .bar-left{
+      color:#fff;
+      left:0.5rem;
+    }
+    .bar-right{
+      float: right;
+      right: 0.5rem;
+    }
+  }
+  a.text{
+    color:#fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    margin:3rem 0;
+    font-size: 5vw;
+  }
+  a.account-edit{
+    .box-sizing(box);
+    margin:0 auto;
+    display: block;
+    float:right;
+    padding:0.6rem;
+    text-align: center;
+    background-color: rgba(0,0,0,.6);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    font-size: 5vw;
+    font-family: 'Avenir-Light';
+  }
+}
+hr{
+  border:0;
+  border-top:1px solid rgba(255,255,255,0.3);
+  &.margin{
+    margin:2rem 0;
+  }
+}
+
+div#accountEdit div[role='main']{
+  form{
+    input[type='text'],select{
+      border-radius: 0;
+      width: 100%;
+      .box-sizing(box);
+      background-color: transparent;
+      border:0;
+      border-bottom:1px solid rgba(255,255,255,0.3);
+      padding:1rem 0;
+      font-size: 5vw;
+      font-family: 'Avenir-Light';
+    }
+    select{
+      text-transform: uppercase;
+    }
+    input[type='submit']{
+      background-color: rgba(0,0,0,0.8);
+      border-radius: 0;
+      color:#fff;
+      border:0;
+      padding:1rem;
+      width: 100%;
+      margin-top:2rem;
+      font-size: 5vw;
+      text-transform: uppercase;
+    }
+  }
+}
+
+div#reviews div[role='main']{
+  ul{
+    margin:0;
+    li{
+      height: 23vw;
+      padding:9vw 0;
+      border-bottom:1px solid rgba(255,255,255,.3);
+      &:first-child{
+        padding-top:0;
+      }
+      &:last-child{
+        margin-bottom:9vw;
+      }
+    }
+  }
+  div.text{
+    span.name{
+      color:@green;
+      display: block;
+      font-size: 7vw;
+      text-transform: uppercase;
+      padding-bottom: 1vw;
+    }
+    span.price-date,span.place-person{
+      text-transform: uppercase;
+      display: block;
+      font-size: 4.5vw;
+      margin-bottom:0.4vw;
+    }
+  } 
+  div.controls{
+    float:right;
+    height: 100%;
+    span.plus, span.minus{
+      background-repeat: no-repeat;
+      width: 9vw;
+      height: 50%;
+      display: block;
+    }
+    span.plus{
+      background-image:url(../img/plus-off.svg); 
+      background-position: top center;
+    }
+    span.plus.checked{
+      background-image:url(../img/plus-on.svg); 
+    }
+    span.minus{
+      background-image:url(../img/minus-off.svg);
+      background-position: bottom center;
+    }
+    span.minus.checked{
+      background-image:url(../img/minus-on.svg);
+      background-position: bottom center;
+    }
+  } 
+}
+@import (less) "./layout/hotfix.less";
+
